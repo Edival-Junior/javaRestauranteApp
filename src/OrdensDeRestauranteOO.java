@@ -1,3 +1,10 @@
+/*
+ * @Autor: Edival Aparecido da Silva Junior
+ * @Date: 12/019
+ * 
+ * */
+
+
 package main;
 
 import java.util.Scanner;
@@ -8,18 +15,18 @@ public class OrdensDeRestauranteOO {
 		
 		Scanner scan = new Scanner(System.in);
 		pedidoRestaurante pedido = new pedidoRestaurante();
-		System.out.println("Ol·, digite seu nome para iniciar o seu pedido!");
+		System.out.println("Ol√°, digite seu nome para iniciar o seu pedido!");
 		System.out.print("Seu nome: ");
 		String nome = scan.next();
 		nome = nome.substring(0, 1).toUpperCase() + nome.substring(1).toLowerCase();
 		pedido.setNomeCliente(nome);
-		System.out.println("Ol· "+pedido.getNomeCliente()+", \nPara ver fazer seu pedido digite \"Manh„\" para os pratos matinais e \"Noite\" para os pratos noturnos.");
+		System.out.println("Ol√° "+pedido.getNomeCliente()+", \nPara ver fazer seu pedido digite \"Manh√£\" para os pratos matinais e \"Noite\" para os pratos noturnos.");
 		pedido.setHorario(scan.next());
 	
 		try {
 			if(!pedido.getHorario().equalsIgnoreCase("Noite")) {
 				char[] hora = pedido.getHorario().toCharArray();
-				hora[4] = '„';
+				hora[4] = '√£';
 				pedido.setHorario(new String(hora)); 
 			}
 			String horaCapitalizada = pedido.getHorario();
@@ -32,10 +39,10 @@ public class OrdensDeRestauranteOO {
 		System.out.println(pedido.getHorario());
 		
 		switch (pedido.getHorario()) {
-		case "Manh„":
+		case "Manh√£":
 			pedido.setPratoPrincipal("Ovos");
 			pedido.setAcompanhamento("Torradas");
-			pedido.setBebida("Xicara de CafÈ");
+			pedido.setBebida("Xicara de Caf√©");
 			
 			System.out.println("Pratos matinais");
 
@@ -44,8 +51,8 @@ public class OrdensDeRestauranteOO {
 		case "Noite":
 			
 			pedido.setPratoPrincipal("Bife");
-			pedido.setAcompanhamento("PorÁ„o de Batatas");
-			pedido.setBebida("TaÁa de vinho");
+			pedido.setAcompanhamento("Por√ß√£o de Batatas");
+			pedido.setBebida("Ta√ßa de vinho");
 			pedido.setSobremesa("Fatia de bolo");
 			
 			System.out.println("Pratos noturnos");
@@ -59,15 +66,15 @@ public class OrdensDeRestauranteOO {
 			System.out.println("1 - Principal: "+pedido.getPratoPrincipal()); 
 			System.out.println("2 - Acompanhamento: "+pedido.getAcompanhamento());
 			System.out.println("3 - Bebida: "+ pedido.getBebida());
-			if(pedido.getHorario().equalsIgnoreCase("Manh„")) {
-			System.out.println("Para solicitar seu pedido, Digite o numero refetente a opÁ„o desejada!\n"
-					+ "APENAS a quantidade de xicaras de cafÈ pode ser maior que 1\n"
-					+ "Exemplo de pedido: 1233 (Ovo, torradas e duas xicaras de cafÈ)");
+			if(pedido.getHorario().equalsIgnoreCase("Manh√£")) {
+			System.out.println("Para solicitar seu pedido, Digite o numero refetente a op√ß√£o desejada!\n"
+					+ "APENAS a quantidade de xicaras de caf√© pode ser maior que 1\n"
+					+ "Exemplo de pedido: 1233 (Ovo, torradas e duas xicaras de caf√©)");
 			}else {
 				System.out.println("4 - Sobremesa: "+pedido.getSobremesa());
-				System.out.println("Para solicitar seu pedido, Digite o numero referente a opÁ„o desejada!"
-						+ "\nA quantidade de porÁıes de batata pode ser maior que 1!"
-						+ "\nExemplo de pedido: 12234 (Bife, duas porÁıes de batata, uma taÁa de vinho e um pedaÁo de bolo)");
+				System.out.println("Para solicitar seu pedido, Digite o numero referente a op√ß√£o desejada!"
+						+ "\nA quantidade de por√ß√µes de batata pode ser maior que 1!"
+						+ "\nExemplo de pedido: 12234 (Bife, duas por√ß√µes de batata, uma ta√ßa de vinho e um peda√ßo de bolo)");
 			}
 			String ordemCliente = scan.next();
 			char[] ordens = ordemCliente.toCharArray();
@@ -97,13 +104,13 @@ public class OrdensDeRestauranteOO {
 							pedido.setQuantidadeSobremesa(pedido.getQuantidadeSobremesa() + 1);
 							break;
 						}else {
-							System.out.println("A opÁ„o: "+ ordens[i] +" n„o È reconhecida e ser· desconsiderada!");
+							System.out.println("A op√ß√£o: "+ ordens[i] +" n√£o √© reconhecida e ser√° desconsiderada!");
 							break;
 						}
 						
 					
 					default: 
-						System.out.println("A opÁ„o: "+ ordens[i] +" n„o È reconhecida e ser· desconsiderada!"); ;
+						System.out.println("A op√ß√£o: "+ ordens[i] +" n√£o √© reconhecida e ser√° desconsiderada!"); ;
 					break;  
 					
 				}
@@ -111,18 +118,18 @@ public class OrdensDeRestauranteOO {
 			
 			System.out.println("Verificando quantidades...");
 			Thread.sleep(300);
-			if (pedido.getHorario().equalsIgnoreCase("Manh„")) {
+			if (pedido.getHorario().equalsIgnoreCase("Manh√£")) {
 				
 				if (pedido.getQuantidadePratoPrincipal() > 1 ) {
-					System.out.println("Os pratos principais do periodo matutino est„o restritos a uma unidade por pedido. "
-							+ "\n Seu pedido ser· alterado!");
+					System.out.println("Os pratos principais do periodo matutino est√£o restritos a uma unidade por pedido. "
+							+ "\n Seu pedido ser√° alterado!");
 					pedido.setQuantidadePratoPrincipal(1);
 					
 				}
 				
 				if (pedido.getQuantidadeAcompanhamento() > 1  ) {
-					System.out.println("Os  acompanhamentos do periodo matutino est„o restritos a uma unidade por pedido. "
-							+ "\n Seu pedido ser· alterado!");
+					System.out.println("Os  acompanhamentos do periodo matutino est√£o restritos a uma unidade por pedido. "
+							+ "\n Seu pedido ser√° alterado!");
 					pedido.setQuantidadeAcompanhamento(1);
 				}
 
@@ -131,21 +138,21 @@ public class OrdensDeRestauranteOO {
 			if (pedido.getHorario().equalsIgnoreCase("Noite")) {
 				
 				if (pedido.getQuantidadePratoPrincipal() > 1 ) {
-					System.out.println("Os pratos principais do periodo noturno est„o restritos a uma unidade por pedido. "
-							+ "\n Seu pedido ser· alterado!");
+					System.out.println("Os pratos principais do periodo noturno est√£o restritos a uma unidade por pedido. "
+							+ "\n Seu pedido ser√° alterado!");
 					pedido.setQuantidadePratoPrincipal(1);
 					
 				}
 				
 				if (pedido.getQuantidadeBebida() > 1  ) {
-					System.out.println("As taÁas de vinho do periodo noturno est„o restritas a uma unidade por pedido. "
-							+ "\n Seu pedido ser· alterado!");
+					System.out.println("As ta√ßas de vinho do periodo noturno est√£o restritas a uma unidade por pedido. "
+							+ "\n Seu pedido ser√° alterado!");
 					pedido.setQuantidadeBebida(1);
 				}
 
 				if (pedido.getQuantidadeSobremesa() > 1  ) {
-					System.out.println("As sobremesas do periodo noturno est„o restritas a uma unidade por pedido. "
-							+ "\n Seu pedido ser· alterado!");
+					System.out.println("As sobremesas do periodo noturno est√£o restritas a uma unidade por pedido. "
+							+ "\n Seu pedido ser√° alterado!");
 					pedido.setQuantidadeSobremesa(1);
 				}
 
