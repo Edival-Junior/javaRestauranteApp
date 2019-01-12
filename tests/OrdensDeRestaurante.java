@@ -33,7 +33,7 @@ public class  {
 			System.out.println("1 - Principal: Ovo"); 
 			System.out.println("2 - Acompanhamento: Torradas");
 			System.out.println("3 - Bebida: Café");
-			System.out.println("Para solicitar seu pedido, Digite o numero refetente a opção desejada!\n"
+			System.out.println("Para solicitar seu pedido, Digite o numero referente a opção desejada!\n"
 					+ "A quantidade de xicaras de café pode ser maior que 1\n"
 					+ "Exemplo de pedido: 1233 (Ovo, torradas e duas xicaras de café)");
 			String pedidoManha = scan.next(); //recebe o pedido do usuario
@@ -81,7 +81,7 @@ public class  {
 			System.out.println("2 - Acompanhamento: Batatas");
 			System.out.println("3 - Bebida: Vinho");
 			System.out.println("3 - Sobremesa: Bolo");
-			System.out.println("Para solicitar seu pedido, Digite o numero refetente a opção desejada!\n"
+			System.out.println("Para solicitar seu pedido, Digite o numero referente a opção desejada!\n"
 					+ "A quantidade de porções de batata pode ser maior que 1\n"
 					+ "Exemplo de pedido: 12234 (Bife, duas porções de batata, uma taça de vinho e um pedaço de bolo)");
 			String pedidoNoite = scan.next(); //O usuario faz seu pedido
